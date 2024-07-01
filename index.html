@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Custom Wallpaper</title>
+</head>
+<body>
+    <div id="tasks-container">
+        <div id="tasks"></div>
+        <button id="create-task">Create Task</button>
+    </div>
+    <div id="sun"></div>
+    <div id="timer">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+    </div>
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create Task</h2>
+            <label for="task-name">Task Name:</label>
+            <input type="text" id="task-name">
+            <label for="task-duration">Duration (hours):</label>
+            <input type="number" id="task-duration" min="1" max="24">
+            <button id="save-task">Save Task</button>
+            <h3>Existing Tasks</h3>
+            <ul id="task-list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
