@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.30.1/css/keyboard.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.30.1/js/jquery.keyboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.30.1/js/jquery.keyboard.extension-all.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -23,14 +26,18 @@
             <span class="close">&times;</span>
             <h2>Create Task</h2>
             <label for="task-name">Task Name:</label>
-            <input type="text" id="task-name">
+            <div style="display: flex; align-items: center;">
+                <input type="text" id="task-name" class="input">
+                <button id="show-keyboard" style="margin-left: 10px;">⌨️</button>
+            </div>
             <label for="task-duration">Duration (hours):</label>
-            <input type="number" id="task-duration" min="1" max="24">
+            <input type="number" id="task-duration" min="1" max="24" class="input">
             <button id="save-task">Save Task</button>
             <h3>Existing Tasks</h3>
             <ul id="task-list"></ul>
         </div>
     </div>
+    <div id="keyboard" class="simple-keyboard"></div>
     <script src="script.js"></script>
 </body>
 </html>

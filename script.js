@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModal = document.querySelector('.close');
     const saveTaskButton = document.getElementById('save-task');
     const taskList = document.getElementById('task-list');
+    const taskNameInput = document.getElementById('task-name');
+    const taskDurationInput = document.getElementById('task-duration');
+    const showKeyboardButton = document.getElementById('show-keyboard');
     let currentTask = null;
     let startTime;
     let running = false;
@@ -26,7 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial tasks
     const initialTasks = [
         { name: 'Work', duration: 6 },
-        { name: 'Meditation', duration: 1 }
+        { name: 'Meditation', duration: 1 },
+        { name: 'Criativity', duration: 1 },
+        { name: 'Leisure', duration: 2 },
+        { name: 'Home Work', duration: 1 },
     ];
 
     initialTasks.forEach(task => createTaskElement(task.name, task.duration));
@@ -121,8 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Save new task
     saveTaskButton.addEventListener('click', () => {
-        const taskName = document.getElementById('task-name').value;
-        const taskDuration = document.getElementById('task-duration').value;
+        const taskName = taskNameInput.value;
+        const taskDuration = taskDurationInput.value;
         if (taskName && taskDuration) {
             createTaskElement(taskName, taskDuration);
             taskModal.style.display = 'none';
@@ -147,4 +153,23 @@ document.addEventListener('DOMContentLoaded', () => {
             taskList.appendChild(taskItem);
         });
     }
+
+    // Initialize Virtual Keyboard
+    const keyboard = $('#task-name').keyboard({
+        layout: 'qwerty',
+        usePreview: false,
+        alwaysOpen: false,
+        initialFocus: true,
+        stayOpen: true,
+        position: {
+            of: null,
+            my: 'center top',
+            at: 'center top',
+            at2: 'center bottom'
+        }
+    });
+
+    showKeyboardButton.addEventListener('click', () => {
+        $('#task-name').getkeyboard().reveal();
+    });
 });
