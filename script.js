@@ -18,11 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
         midday: 'images/sun_midday.png',
         setting: 'images/sun_setting.png'
     };
+    const moonImages = {
+        rising: 'images/moon_rising.png',
+        full: 'images/moon_full.png',
+    };
 
     // Initial tasks
     const initialTasks = [
-        { name: 'Trabalho', duration: 6 },
-        { name: 'Meditação', duration: 6 }
+        { name: 'Work', duration: 6 },
+        { name: 'Meditation', duration: 1 }
     ];
 
     initialTasks.forEach(task => createTaskElement(task.name, task.duration));
@@ -65,12 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
             sun.style.backgroundImage = `url(${sunImages.rising})`;
         } else if (hours >= 12 && hours < 16) {
             sun.style.backgroundImage = `url(${sunImages.midday})`;
-        } else if (hours >= 16 && hours < 20) {
+        } else if (hours >= 16 && hours < 18) {
             sun.style.backgroundImage = `url(${sunImages.setting})`;
-        } else {
-            sun.style.display = 'none';
+        } else if (hours >= 18 && hours < 20) {
+            sun.style.backgroundImage = `url(${moonImages.rising})`;
+        } else if (hours >= 20 || hours < 5) {
+            sun.style.backgroundImage = `url(${moonImages.full})`;
         }
-
         sun.style.top = `${sunY}px`;
     }
 

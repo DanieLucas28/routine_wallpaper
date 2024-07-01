@@ -8,11 +8,13 @@ body {
     margin: 0;
     position: relative;
 }
+
 #tasks-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 #tasks {
     margin-top: 20px;
     width: 100%;
@@ -20,6 +22,7 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
 .task {
     width: 300px;
     height: 50px;
@@ -33,7 +36,19 @@ body {
     padding: 0 10px;
     cursor: pointer;
     position: relative;
+    transition: background-color 0.3s, transform 0.3s;
 }
+
+.task:hover {
+    background-color: #5588ee;
+    transform: scale(1.05);
+}
+
+.task:active {
+    background-color: #3355cc;
+    transform: scale(0.95);
+}
+
 #sun {
     position: absolute;
     right: 10px;
@@ -41,6 +56,7 @@ body {
     height: 100px;
     background-size: cover;
 }
+
 #timer {
     position: absolute;
     left: 20px;
@@ -48,6 +64,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 #timer button, #create-task {
     width: 100px;
     height: 40px;
@@ -57,7 +74,19 @@ body {
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
+
+#timer button:hover, #create-task:hover {
+    background-color: #5588ee;
+    transform: scale(1.05);
+}
+
+#timer button:active, #create-task:active {
+    background-color: #3355cc;
+    transform: scale(0.95);
+}
+
 /* Modal styles */
 .modal {
     display: none;
@@ -70,6 +99,7 @@ body {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
 }
+
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -80,6 +110,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 .close {
     color: #aaa;
     align-self: flex-end;
@@ -87,6 +118,7 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
+
 .close:hover,
 .close:focus {
     color: black;
